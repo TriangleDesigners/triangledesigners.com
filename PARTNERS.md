@@ -1,6 +1,6 @@
 Partners
 
-* Dan Moore | Triangle Designers Community
+* Dan Moore | Triangle Designers
 * Christian Reuter | Refresh the Triangle
 * Amy Lyons | AIGA Raleigh
 * Julie Grundy | Triangle UXPA
