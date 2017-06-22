@@ -5,7 +5,7 @@ import rimraf from 'gulp-rimraf'
 const paths = {
   in: {
     js: 'lib/*.js',
-    assets: 'lib/assets/*'
+    assets: 'assets/*'
   },
   out: {
     js: 'dist',
