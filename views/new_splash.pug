@@ -13,7 +13,10 @@ html(lang='en')
         | throughout North Carolina’s Triangle to connect and inspire one
         | another.
       p.stats
-        | #{active} online now of #{total} registered.
+        span.active #{active}
+        |  online now of 
+        span.total #{total}
+        |  registered.
       form#invite
         label(for='email') Email
         input(type='email' id='email' name='email' placeholder='email@example.com' autofocus='autofocus')
