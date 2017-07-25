@@ -19,8 +19,7 @@ body.addEventListener('submit', function (ev){
   button.disabled = true
   button.className = ''
   button.innerHTML = 'Please Wait'
-  var gcaptcha_response = form.elements['g-recaptcha-response']
-  invite(channel ? channel.value : null, coc && coc.checked ? 1 : 0, email.value, gcaptcha_response.value, function (err, msg){
+  invite(channel ? channel.value : null, coc && coc.checked ? 1 : 0, email.value, function (err, msg){
     if (err) {
       button.removeAttribute('disabled')
       button.className = 'error'
@@ -32,11 +31,10 @@ body.addEventListener('submit', function (ev){
   })
 })
 
-function invite (channel, coc, email, gcaptcha_response_value, fn){
+function invite(channel, coc, email, fn) {
   request
   .post(data.path + 'invite')
   .send({
-    "g-recaptcha-response": gcaptcha_response_value,
     coc: coc,
     channel: channel,
     email: email
@@ -68,7 +66,7 @@ socket.on('data', function (users){
 socket.on('total', function (n){ update('total', n) })
 socket.on('active', function (n){ update('active', n) })
 
-function update (val, n, noanim){
+function update(val, n, noanim) {
   var el = document.querySelector('.' + val)
   if (n != el.innerHTML) {
     el.innerHTML = n
@@ -76,7 +74,7 @@ function update (val, n, noanim){
   }
 }
 
-function anim (el, c){
+function anim(el, c) {
   if (el.anim) return
   el.className = c + ' grow'
   el.anim = setTimeout(function (){
@@ -86,7 +84,7 @@ function anim (el, c){
 }
 
 // redirect, using "RPC" to parent if necessary
-function topLevelRedirect (url) {
+function topLevelRedirect(url) {
   if (window === top) location.href = url
   else parent.postMessage('slackin-redirect:' + id + ':' + url, '*')
   // Q: Why can't we just `top.location.href = url;`?
